@@ -4,9 +4,11 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) {
             int[] data = new int[1024 * 1024 * 10];
+            String fName  = args[0];
+            String f1Name = args[1];
         
             long startTime = System.currentTimeMillis();
-            try (FileInputStream fis = new FileInputStream("dumb-picture.jpg");
+            try (FileInputStream fis = new FileInputStream(fName);
                                  BufferedInputStream bis = new BufferedInputStream(fis)) {
                         
                         int b, counter = 0;
@@ -17,7 +19,7 @@ public class Main {
                                 ex.printStackTrace();
                             }
             
-            try (FileOutputStream fos = new FileOutputStream("dumb.jpg");
+            try (FileOutputStream fos = new FileOutputStream(f1Name);
                                  BufferedOutputStream bos = new BufferedOutputStream(fos)) {
                 
                         for (int binaryInt : data)
